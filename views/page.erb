@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @login %>'s marks</title>
+    <style>
+		table, th, td {
+		    border: 1px solid black;
+		    border-collapse: collapse;
+		}
+		th, td {
+		    padding: 5px;
+		}
+	</style>
+  </head>
+
+<body>
+	<h1 style="color:gray; margin:15px">
+		<%= @login %>
+	</h1>
+	<% @marks.each do |subj, p| %>
+		<h2 style="color:brown">
+			<%= subj %>
+		</h2>
+
+		<table>
+		  <tr>
+		  	<% p.keys.each do |a| %>
+		  	<td>
+		  		<% if a == "Ocena" %>
+		  			<div style="color:red">Ocena</div>
+		  		<% else %>
+		  			<%= a %>
+		  		<% end %>
+		   	</td>
+		    <% end %>
+		  </tr>
+		  <tr>
+		  	<% p.values.each do |m| %>
+		    	<td><%= m %></td>
+		    <% end %>
+		  </tr>
+		</table>
+
+		<br><br>
+	<% end %>
+
+</body>
+</html>
